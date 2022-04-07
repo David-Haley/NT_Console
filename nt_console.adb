@@ -21,6 +21,7 @@
 --  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 --
 -----------------------------------------------------------------------
+-- 20220407: DJH modification to remove GNAT 2021 compiler warning
 
 pragma C_Pass_By_Copy (128);
 
@@ -148,7 +149,9 @@ package body NT_Console is
 
    WIN32_ERROR          : constant DWORD  := 0;
    INVALID_HANDLE_VALUE : constant HANDLE := -1;
-   STD_OUTPUT_HANDLE    : constant DWORD  := -11;
+   -- STD_OUTPUT_HANDLE    : constant DWORD  := -11;
+   STD_OUTPUT_HANDLE    : constant DWORD  := 4294967285;
+   -- DJH corection to remove a compiler warning in GNAT 2021 (20220407)
 
    Color_Value      : constant array (Color_Type) of Nibble := (0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15);
    Color_Type_Value : constant array (Nibble) of Color_Type :=
